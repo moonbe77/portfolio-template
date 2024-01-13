@@ -23,6 +23,12 @@ const {
   content: contentClass = '',
   icon: defaultIconClass = 'text-primary dark:text-slate-200 border-primary dark:border-blue-700',
 } = classes;
+
+const getNextTimelineItem = (index: number) => {
+  const nextItem = items[index + 1];
+  if (!nextItem) return null;
+  return nextItem;
+};
 ---
 
 {
@@ -74,9 +80,17 @@ const {
             {content && (
               <p class={twMerge('text-muted mt-2', contentClass, itemClasses?.description)} set:html={content} />
             )}
-            <Button class="mt-4" variant="terciary" href={`#timeline-item-${index + 1}`}>
-              Go next
-            </Button>
+            <div class="flex justify-center mt-16 ">
+              {getNextTimelineItem(index) ? (
+                <Button class="mt-4" variant="secondary" href={`#timeline-item-${index + 1}`}>
+                  {getNextTimelineItem(index)?.title}
+                </Button>
+              ) : (
+                <Button class="mt-4 animate-pulse" variant="primary" href="/contact">
+                  Contact Me
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       ))}
