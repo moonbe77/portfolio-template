@@ -64,11 +64,23 @@ export const getPermalink = (slug = '', type = 'page'): string => {
   return definitivePermalink(permalink);
 };
 
+export const  getSocialLink = (link: string) => {
+	const socials = {
+		x: 'https://twitter.com/moonbe77',
+		facebook: 'https://facebook.com/#',
+		instagram: 'https://instagram.com/#',
+		linkedin: 'https://linkedin.com/in/#',
+		youtube: 'https://youtube.com/channel/#',		
+	}
+	return socials[link];
+}
+
 /** */
 export const getHomePermalink = (): string => getPermalink('/');
 
 /** */
 export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
+
 
 /** */
 export const getAsset = (path: string): string =>
