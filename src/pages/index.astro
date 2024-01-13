@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 // import Note from '~/components/widgets/Note.astro';
 // import Features from '~/components/widgets/Features.astro';
@@ -12,6 +11,7 @@ import Hero from '~/components/widgets/Hero.astro';
 // import Stats from '~/components/widgets/Stats.astro';
 // import CallToAction from '~/components/widgets/CallToAction.astro';
 import TimelineFeature from '~/components/widgets/TimelineFeature.astro';
+import timelineData from '~/data/timeline-data.json';
 
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
@@ -49,45 +49,7 @@ const metadata = {
       src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
       alt: 'Steps image',
     }}
-    items={[
-      {
-        title: 'Early Years (Childhood)',
-        description: 'Inspired by [specific childhood experience or influence], my fascination with mechanics began.',
-        content: ' test',
-        icon: 'tabler:candy',
-        dateFrom: '',
-        dateTo: '',
-        image: {
-          src: 'https://media.istockphoto.com/id/1216200785/photo/kid-boy-repairs-a-remote-controlled-car-toy.jpg?s=1024x1024&w=is&k=20&c=5p1QRJEtSsuMInMT9F-u8pHzy93z6eOOYewDoOlJuSg=',
-          alt: 'Steps image',
-        },
-      },
-
-      {
-        title: 'High School & College Years',
-        description:
-          'Engaged in [key projects or competitions], I cultivated foundational skills and explored diverse facets of mechanical engineering.',
-        icon: 'tabler:books',
-        dateFrom: '1982',
-        dateTo: '1990',
-      },
-      {
-        title: 'Early Career',
-        description:
-          'Embarked on [first job or significant project], gaining hands-on experience and contributing to innovative solutions.',
-        icon: 'tabler:paint',
-        dateFrom: '1982',
-        dateTo: '1990',
-      },
-      {
-        title: 'Experienced Professional',
-        description:
-          'Led [key projects or teams], applying my expertise to solve complex problems and deliver high-quality results.',
-        icon: 'tabler:tools',
-        dateFrom: '1982',
-        dateTo: '1990',
-      },
-    ]}
+    items={timelineData.timeline}
   />
 
   <!-- Features Widget ***************

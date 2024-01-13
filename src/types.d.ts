@@ -133,8 +133,7 @@ export interface Item {
   icon?: string;
   classes?: Record<string, string>;
   callToAction?: CallToAction;
-  image?: Image;
-	date?: Date;
+  image?: Image;	
 }
 
 export interface Price {
@@ -264,8 +263,12 @@ export interface Timeline extends Headline, Widget {
 }
 
 export interface TimelineItem extends Item {
-	dateFrom:string ;
-	dateTo?:string ;
+	date:{
+		from:string ;
+		to?:string ;
+	}
+	subtitle?: string;
+	tagline?: string;
 	content: string;
 	image?: Image;
   video?: Video;

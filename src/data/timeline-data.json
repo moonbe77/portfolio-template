@@ -1,0 +1,64 @@
+{
+  "timeline": [
+    {
+      "title": "A Curious Beginning",
+      "tagline": "Where It All Began: Unraveling the Roots of Passion",
+      "content": "From dismantling old radios to observing the intricate movements of household appliances, my childhood was a playground of curiosity and wonder. Inspired by my grandfather's tales of engineering marvels and fueled by an insatiable desire to understand the mechanics behind everyday objects, my journey into the world of mechanical engineering was set in motion. Whether it was fixing broken toys or designing makeshift contraptions, each experience nurtured a deep-seated passion for innovation and problem-solving. This formative period laid the foundation for my future endeavors, instilling values of perseverance, creativity, and ingenuity that continue to guide my professional trajectory.",
+      "subtitle": "Early Years (Childhood)",
+      "icon": "tabler:candy",
+      "date": {
+        "from": "1111",
+        "to": "2222"
+      },
+      "image": {
+        "src": "https://media.istockphoto.com/id/1216200785/photo/kid-boy-repairs-a-remote-controlled-car-toy.jpg?s=1024x1024&w=is&k=20&c=5p1QRJEtSsuMInMT9F-u8pHzy93z6eOOYewDoOlJuSg=",
+        "alt": "alt text"
+      }
+    },
+    {
+      "title": "Foundations & Exploration",
+      "tagline": "Navigating Academia: Cultivating Skills and Embracing Challenges",
+      "content": "During my high school and college years, I immersed myself in rigorous academic pursuits, hands-on projects, and competitive environments that shaped my mechanical engineering acumen. Engaging in robotics competitions, research endeavors, and collaborative initiatives, I honed foundational skills while exploring diverse facets of the field. Whether it was designing innovative prototypes, participating in national competitions, or conducting groundbreaking research, each experience enriched my knowledge, fostered collaboration, and solidified my commitment to excellence. These formative years were pivotal, cultivating resilience, adaptability, and a relentless pursuit of knowledge that prepared me for the challenges and opportunities ahead.",
+      "subtitle": "High School & College Years",
+      "icon": "tabler:book",
+      "date": {
+        "from": "1111",
+        "to": "2222"
+      },
+      "image": {
+        "src": "https://images.unsplash.com/photo-1581090466619-e945d2e2980e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "alt": "alt text"
+      }
+    },
+    {
+      "title": "Stepping into the Professional Realm",
+      "tagline": "Navigating the Real World: Gaining Experience and Making an Impact",
+      "content": "Embarking on my early career, I transitioned from academia to the professional realm, eager to apply theoretical knowledge to real-world challenges. Joining [Company Name or Industry], I immersed myself in [first job or significant project], gaining hands-on experience, and contributing to innovative solutions. Collaborating with seasoned professionals, leveraging cutting-edge technologies, and navigating complex projects, I honed practical skills, developed industry insights, and established a reputation for reliability, creativity, and excellence. This pivotal phase was instrumental, fostering growth, mentorship, and a profound appreciation for the intricacies of mechanical engineering in diverse applications.",
+      "subtitle": "Early Career",
+      "icon": "tabler:paint",
+      "date": {
+        "from": "1111",
+        "to": "2222"
+      },
+      "image": {
+        "src": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "alt": "alt text"
+      }
+    },
+    {
+      "title": "Leadership & Innovation",
+      "tagline": "Spearheading Advancements: Leading Teams and Driving Excellence",
+      "content": "As an experienced professional, I've had the privilege to spearhead major projects, assume leadership roles, and drive advancements in the mechanical engineering landscape. Whether leading multidisciplinary teams, collaborating with industry leaders, or pioneering innovative solutions, I've leveraged expertise, vision, and strategic insights to achieve transformative outcomes. From conceptualizing groundbreaking technologies to optimizing operational efficiencies, each endeavor reflects a commitment to excellence, innovation, and sustainable growth. This seasoned phase of my career embodies leadership, mentorship, and a relentless pursuit of excellence, shaping the future of mechanical engineering and inspiring the next generation of innovators.",
+      "subtitle": "Experienced Professional",
+      "icon": "tabler:tools",
+      "date": {
+        "from": "1111",
+        "to": "2222"
+      },
+      "image": {
+        "src": "https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "alt": "alt text"
+      }
+    }
+  ]
+}

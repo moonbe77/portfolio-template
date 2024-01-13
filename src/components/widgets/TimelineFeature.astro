@@ -42,11 +42,15 @@ const {
 
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
   <TimeLine
+    defaultIcon="tabler:circle-dashed"
     items={items}
     classes={{
-      container: 'mt-24',
-      panel: 'h-screen',
+      container: '',
+      panel: ' scroll-m-24',
       title: 'text-2xl font-semibold my-8',
+      subtitle: 'text-lg font-semibold my-4',
+      content: 'mt-0.5',
+      icon: '',
     }}
   />
   <!-- <ItemGrid
