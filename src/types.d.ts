@@ -134,6 +134,7 @@ export interface Item {
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
+	date?: Date;
 }
 
 export interface Price {
@@ -249,6 +250,30 @@ export interface Features extends Headline, Widget {
   isBeforeContent?: boolean;
   isAfterContent?: boolean;
 }
+
+export interface TimelineFeatures extends Headline, Widget {
+  image?: Image;
+  video?: Video;
+  items: Array<TimelineItem>;    
+}
+
+export interface Timeline extends Headline, Widget {
+	items?: Array<Item>;
+	columns?: number;
+	isReversed?: boolean;
+}
+
+export interface TimelineItem extends Item {
+	dateFrom:string ;
+	dateTo?:string ;
+	content: string;
+	image?: Image;
+  video?: Video;
+	isReverse?: boolean;
+	callToAction1?: CallToAction;
+	callToAction2?: CallToAction;
+}
+
 
 export interface Faqs extends Headline, Widget {
   iconUp?: string;

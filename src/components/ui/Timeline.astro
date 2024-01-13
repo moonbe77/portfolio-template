@@ -1,10 +1,12 @@
 ---
-import { Icon } from "astro-icon/components";
-import { twMerge } from "tailwind-merge";
-import type { Item } from "~/types";
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import Image from '~/components/common/Image.astro';
+import type { TimelineItem } from '~/types';
+import Button from './Button.astro';
 
 export interface Props {
-  items?: Array<Item>;
+  items?: Array<TimelineItem>;
   defaultIcon?: string;
   classes?: Record<string, string>;
 }
@@ -12,11 +14,11 @@ export interface Props {
 const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
 
 const {
-  container: containerClass = "",
-  panel: panelClass = "",
-  title: titleClass = "",
-  description: descriptionClass = "",
-  icon: defaultIconClass = "text-primary dark:text-slate-200 border-primary dark:border-blue-700",
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+  icon: defaultIconClass = 'text-primary dark:text-slate-200 border-primary dark:border-blue-700',
 } = classes;
 ---
 
@@ -24,55 +26,58 @@ const {
   items && items.length && (
     <div class={containerClass}>
       {items.map(
-        (
-          { title, description, icon, classes: itemClasses = {} },
-          index = 0
-        ) => (
-          <div class={twMerge("flex", panelClass, itemClasses?.panel)}>
-            <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">
+        ({ title, description, icon, classes: itemClasses = {}, content, dateFrom, dateTo, image }, index = 0) => (
+          <div class={twMerge('flex', panelClass, itemClasses?.panel)} id={`timeline-item-${index}`}>
+            <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4 ">
               <div>
                 <div class="flex items-center justify-center">
                   {(icon || defaultIcon) && (
                     <Icon
                       name={icon || defaultIcon}
-                      class={twMerge(
-                        "w-10 h-10 p-2 rounded-full border-2",
-                        defaultIconClass,
-                        itemClasses?.icon
-                      )}
+                      class={twMerge('w-10 h-10 p-2 rounded-full border-2', defaultIconClass, itemClasses?.icon)}
                     />
                   )}
                 </div>
               </div>
-              {index !== items.length - 1 && (
-                <div class="w-px h-full bg-black/10 dark:bg-slate-400/50" />
-              )}
+              {index !== items.length - 1 && <div class="w-px h-full bg-black/10 dark:bg-slate-400/50 " />}
             </div>
-            <div
-              class={`pt-1 ${
-                index !== items.length - 1 ? "pb-8" : ""
-              }`}
-            >
-              {title && (
-                <p
-                  class={twMerge(
-                    "text-xl font-bold",
-                    titleClass,
-                    itemClasses?.title
-                  )}
-                  set:html={title}
-                />
-              )}
+
+            <div class={`pt-1 w-full ${index !== items.length - 1 ? 'pb-8' : ''}`}>
+              <div aria-hidden="true" class="aspect-w-16 aspect-h-7 mb-8">
+                {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+                <div class="">
+                  {dateFrom && <span class="text-sm text-gray-500 dark:text-gray-400">From : {dateFrom}</span>}
+                  {dateTo && <span class="text-sm text-gray-500 dark:text-gray-400"> to {dateTo}</span>}
+                </div>
+                {description && (
+                  <p
+                    class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}
+                    set:html={description}
+                  />
+                )}
+                {image && (
+                  <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+                    {typeof image === 'string' ? (
+                      <Fragment set:html={image} />
+                    ) : (
+                      <Image
+                        class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg"
+                        width="auto"
+                        height="auto"
+                        widths={[400, 768]}
+                        layout="fullWidth"
+                        {...(image as any)}
+                      />
+                    )}
+                  </div>
+                )}
+              </div>
               {description && (
-                <p
-                  class={twMerge(
-                    "text-muted mt-2",
-                    descriptionClass,
-                    itemClasses?.description
-                  )}
-                  set:html={description}
-                />
+                <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={content} />
               )}
+              <Button class="mt-4" variant="terciary" href={`#timeline-item-${index + 1}`}>
+                Go next
+              </Button>
             </div>
           </div>
         )
