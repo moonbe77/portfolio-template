@@ -13,8 +13,6 @@ export interface Props {
 
 const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
 
-console.log(defaultIcon);
-
 const {
   container: containerClass = '',
   panel: panelClass = '',
@@ -45,7 +43,7 @@ const getNextTimelineItem = (index: number) => {
                     class={twMerge('w-10 h-10 p-2 rounded-full border-2', defaultIconClass, itemClasses?.icon)}
                   />
                 )}
-                <span class=" absolute left-14 whitespace-nowrap">
+                <span class=" absolute left-14 whitespace-nowrap" data-motion-date>
                   {date?.from && <span class="text-lg text-gray-500 dark:text-gray-400">{date.from}</span>}
                   {date?.to && <span class="text-lg text-gray-500 dark:text-gray-400"> to {date.to}</span>}
                 </span>
@@ -56,12 +54,21 @@ const getNextTimelineItem = (index: number) => {
 
           <div class={`pt-1 w-full ${index !== items.length - 1 ? 'pb-8' : ''}`}>
             <div aria-hidden="true" class="aspect-w-16 aspect-h-7 mb-8">
-              {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+              {title && (
+                <p
+                  class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}
+                  set:html={title}
+                  data-motion-title
+                />
+              )}
               {subtitle && (
-                <p class={twMerge('text-muted mb-6', subtitleClass, itemClasses?.description)} set:html={subtitle} />
+                <p
+                  class={twMerge('text-muted mb-6 opacity-0', subtitleClass, itemClasses?.description)}
+                  set:html={subtitle}
+                />
               )}
               {image && (
-                <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+                <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg" data-motion-image>
                   {typeof image === 'string' ? (
                     <Fragment set:html={image} />
                   ) : (
@@ -97,3 +104,105 @@ const getNextTimelineItem = (index: number) => {
     </div>
   )
 }
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  const images = document.querySelectorAll('[data-motion-image]');
+  const title = document.querySelectorAll('[data-motion-title');
+  const dates = document.querySelectorAll('[data-motion-date');
+
+  // const enterRigth = gsap.timeline({ repeat: -1, yoyo: true });
+  // enterRigth.to(item, { y: 0, x: '100%', duration: 1, ease: 'power1.inOut' });
+  // enterRigth.to(item, { y: 0, x: '50%', duration: 1, ease: 'power1.inOut' });
+
+  gsap.registerPlugin(ScrollTrigger);
+  dates.forEach((item) => {
+    gsap.from(item, {
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: item,
+        toggleActions: 'play none none none',
+
+        pin: false, // pin the trigger element while active
+        start: 'center bottom', // when the top of the trigger hits the top of the viewport
+        end: 'center 50%', // end after scrolling 500px beyond the start
+        scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        markers: false,
+        // snap: {
+        //   snapTo: 'labels', // snap to the closest label in the timeline
+        //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        //   ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
+        // },
+      },
+      x: 50,
+      opacity: 0,
+      duration: 1,
+    });
+  });
+
+  title.forEach((item) => {
+    gsap.from(item, {
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: item,
+        toggleActions: 'play none none none',
+
+        pin: false, // pin the trigger element while active
+        start: 'center bottom', // when the top of the trigger hits the top of the viewport
+        end: 'center 50%', // end after scrolling 500px beyond the start
+        scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        markers: false,
+        // snap: {
+        //   snapTo: 'labels', // snap to the closest label in the timeline
+        //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        //   ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
+        // },
+      },
+      x: 50,
+      opacity: 0,
+      duration: 1,
+    });
+  });
+
+  images.forEach((item) => {
+    gsap.from(item, {
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: item,
+        toggleActions: 'play none none none',
+
+        pin: false, // pin the trigger element while active
+        start: 'center bottom', // when the top of the trigger hits the top of the viewport
+        end: 'center 50%', // end after scrolling 500px beyond the start
+        scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        markers: false,
+        // snap: {
+        //   snapTo: 'labels', // snap to the closest label in the timeline
+        //   duration: { min: 0.2, max: 3 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+        //   delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+        //   ease: 'power1.inOut', // the ease of the snap animation ("power3" by default)
+        // },
+      },
+      y: -80,
+      opacity: 0,
+      duration: 3,
+    });
+  });
+
+  // const enterLeft = gsap.timeline({ repeat: -1, yoyo: true });
+  // enterLeft.to(item, { y: 0, x: -1000, duration: 1, ease: 'power1.inOut' });
+  // enterLeft.to(item, { y: 0, x: -150, duration: 1, ease: 'power1.inOut' });
+
+  // gsap.registerPlugin(ScrollTrigger);
+  // ScrollTrigger.create({
+  //   trigger: item,
+  //   animation: enterLeft,
+  //   start: 'top 50%',
+  //   end: 'bottom 50%',
+  //   scrub: true,
+  //   markers: true,
+  // });
+</script>

@@ -7,8 +7,8 @@
       "subtitle": "Early Years (Childhood)",
       "icon": "tabler:candy",
       "date": {
-        "from": "1111",
-        "to": "2222"
+        "from": "1995",
+        "to": "1999"
       },
       "image": {
         "src": "https://media.istockphoto.com/id/1216200785/photo/kid-boy-repairs-a-remote-controlled-car-toy.jpg?s=1024x1024&w=is&k=20&c=5p1QRJEtSsuMInMT9F-u8pHzy93z6eOOYewDoOlJuSg=",
@@ -22,8 +22,8 @@
       "subtitle": "High School & College Years",
       "icon": "tabler:book",
       "date": {
-        "from": "1111",
-        "to": "2222"
+        "from": "1999",
+        "to": "2009"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1581090466619-e945d2e2980e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -37,8 +37,8 @@
       "subtitle": "Early Career",
       "icon": "tabler:paint",
       "date": {
-        "from": "1111",
-        "to": "2222"
+        "from": "2009",
+        "to": "2013"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -52,8 +52,8 @@
       "subtitle": "Experienced Professional",
       "icon": "tabler:tools",
       "date": {
-        "from": "1111",
-        "to": "2222"
+        "from": "2013",
+        "to": "Present"
       },
       "image": {
         "src": "https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",

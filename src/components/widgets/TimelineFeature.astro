@@ -18,7 +18,7 @@ const {
 } = Astro.props as TimelineFeatures;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} bg={bg}>
+<WidgetWrapper isDark={isDark} bg={bg} id={id}>
   <div aria-hidden="true" class="aspect-w-16 aspect-h-7 mb-8">
     {
       image && (
