@@ -41,8 +41,9 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              class="motion text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
+              data-motion
             />
           )
         }
@@ -90,3 +91,21 @@ const {
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  const motionObjects = document.querySelectorAll('[data-motion');
+
+  motionObjects.forEach((ele) => {
+    gsap.from(ele, {
+      y: -10,
+      x: 0,
+      opacity: 0.5,
+      duration: 0.5,
+      stagger: 0.5,
+      ease: 'power1.inOut',
+    });
+  });
+</script>
